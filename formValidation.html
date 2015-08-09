@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Form Validation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-sm-7 col-sm-offset-3 col-xs-12">
+                    <form id="validForm" name="validForm" role="form" class="form-horizontal" >
+                        <h3>User</h3>
+                        <div class="form-group">
+                            <label class="texts">Username</label><br>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-6 intps" name="userName" id="userName">
+                                <span id="erruName" class="error col-sm-5">The Username field is required.</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="texts">Password</label><br>
+                            <div class="col-sm-12">
+                                <input type="password" class="col-sm-6 intps" name="pwd1" id="pwd1">
+                                <span id="errPwd1" class="error col-sm-5">The Password field is required.</span>
+                                <span id="errPwd12" class="error col-sm-5">Password did't matched</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="texts">Confirm Password</label><br>
+                            <div class="col-sm-12">
+                                <input type="password" class="col-sm-6 intps" name="pwd2" id="pwd2">
+                                <span id="errPwd2" class="error col-sm-5">The ConfirmPassword field is required.</span>
+                                <span id="errPwd21" class="error col-sm-5">Password did't matched</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="texts">Firstname</label><br>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-6 intps" name="fName" id="fName">
+                                <span id="errfName" class="error col-sm-5">The FirstName field is required.</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="texts">Lastname</label><br>
+                            <div class="col-sm-12">
+                                <input type="text" class="col-sm-6 intps" name="lName" id="lName">
+                                <span id="errlName" class="error col-sm-5">The Lastname field is required.</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="texts">Email</label><br>
+                            <div class="col-sm-12">
+                                <input type="email" class="col-sm-6 intps" name="email" id="email">
+                                <span id="errEmail" class="error col-sm-5">The Email field is required.</span>
+                            </div>
+                        </div>
+
+                        <input type="button" class="btn btn-default inpts" value="Create" onclick="return validate()">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function validate() {
+                
+
+                var erruName=document.getElementById("erruName");
+                var uname = document.validForm.userName;
+                var errPwd1=document.getElementById("errPwd1");
+                var errPwd12=document.getElementById("errPwd12");
+                var ppwd1 = document.validForm.pwd1;
+                 var errPwd2=document.getElementById("errPwd2");
+                 var errPwd21=document.getElementById("errPwd21");
+                var ppwd2 = document.validForm.pwd2;
+                 var errfName=document.getElementById("errfName");
+                var fnam = document.validForm.fName;
+                 var errlName=document.getElementById("errlName");
+                var lnam = document.validForm.lName;
+                 var errEmail=document.getElementById("errEmail");
+                var emaill = document.validForm.email;
+                //username part
+                if (uname.value==="") {
+                    erruName.setAttribute("style", "visibility : visible");
+                   
+                }
+                else {
+                    erruName.setAttribute("style", "visibility : hidden");
+                    
+                }
+                //password part1
+                
+                if (ppwd1.value==="") {
+                    errPwd1.setAttribute("style", "visibility : visible");
+                   
+                }
+                 else {
+                    errPwd1.setAttribute("style", "visibility : hidden");
+                    
+                }
+                if (ppwd1.value != ppwd2.value ) {
+                    errPwd12.setAttribute("style", "visibility : visible");
+                   
+                }
+                 else {
+                    errPwd12.setAttribute("style", "visibility : hidden");
+                    
+                }
+                //password part2
+               
+                if (ppwd2.value==="") {
+                    errPwd2.setAttribute("style", "visibility : visible");
+                    
+                }
+                 else {
+                    errPwd2.setAttribute("style", "visibility : hidden");
+                   
+                }
+                if (ppwd1.value != ppwd2.value ) {
+                    errPwd21.setAttribute("style", "visibility : visible");
+                   
+                }
+                 else {
+                    errPwd21.setAttribute("style", "visibility : hidden");
+                    
+                }
+                
+                
+                //First Name part
+               
+                if (fnam.value==="") {
+                    errfName.setAttribute("style", "visibility : visible");
+                    var error = 1;
+                }
+                 else {
+                    errfName.setAttribute("style", "visibility : hidden");
+                    
+                }
+                   //Last Name part
+               
+                if (lnam.value==="") {
+                    errlName.setAttribute("style", "visibility : visible");
+                    
+                }
+                 else {
+                    errlName.setAttribute("style", "visibility : hidden");
+                    
+                }
+                   //Email part
+               
+                if (emaill.value==="") {
+                    errEmail.setAttribute("style", "visibility : visible");
+                    
+                }
+                 else {
+                    errEmail.setAttribute("style", "visibility : hidden");
+                    
+                }
+                
+
+            }
+        </script>
+
+        <script src="js/jquery-1.11.3.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
